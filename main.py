@@ -27,6 +27,9 @@ for i in range(len(job_titles)):
 # print(location_name)
 # print(job_skill)
 # csv file
+file_list = [job_title, company_name, location_name, job_skill]
+exported = zip_longest(*file_list)
 with open("/users/islam/desktop/isla_test.csv", "w") as myfile:
-    wr = csv.writer(myfile)
-    wr.writerow(["Job Title","Company Name","Location","Skills"])
+    wr = csv.writer(myfile, delimiter=';')
+    wr.writerow(["Job Title", "Company Name", "Location", "Skills"])
+    wr.writerows(exported)
